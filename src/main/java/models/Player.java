@@ -6,23 +6,23 @@ import javax.persistence.*;
 @Table
 public class Player extends Staff {
 
-    private String position;
+    private Position position;
     private Team team;
 
     public Player(){}
 
-    public Player(String name, String position, double salary, Team team){
+    public Player(String name, Position position, double salary, Team team){
         super(name, salary);
         this.position = position;
         this.team = team;
     }
 
-    @Column(name = "position")
-    public String getPosition() {
+    @Enumerated(value = EnumType.STRING)
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
