@@ -1,5 +1,6 @@
 package db;
 
+import models.Manager;
 import models.Player;
 import models.Team;
 import org.hibernate.Criteria;
@@ -18,12 +19,29 @@ public class DBTeam {
         try {
             Criteria cr = session.createCriteria(Player.class);
             cr.add(Restrictions.eq("team", team));
-            results =  cr.list();
+            results = cr.list();
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
         return results;
+    }
+
+    public static Manager getManager(Team team) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Manager manager = null;
+
+        try {
+            Criteria cr = session.createCriteria(Manager.class);
+            cr.add(Restrictions.eq("team", team));
+            manager = (Manager) cr.uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return manager;
     }
 }

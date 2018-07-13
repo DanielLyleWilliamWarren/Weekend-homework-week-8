@@ -1,10 +1,7 @@
 import db.DBHelper;
 import db.DBLeague;
 import db.DBTeam;
-import models.League;
-import models.Player;
-import models.Position;
-import models.Team;
+import models.*;
 
 import java.util.List;
 
@@ -28,8 +25,12 @@ public class Runner {
         Player player4 = new Player("Cillerson", Position.GOALIE, 120000.00, team2);
         DBHelper.save(player4);
 
+        Manager manager = new Manager("Pep Guardiola", 10000.00, 100, team2);
+        DBHelper.save(manager);
+
         List<Team> teams = DBLeague.getTeamsInLeague(league);
         List<Player> players = DBTeam.getPlayersInLeague(team2);
+        Manager managerOfTeam = DBTeam.getManager(team2);
     }
 
 
