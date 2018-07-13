@@ -1,4 +1,4 @@
 package models;
 
-public class Staff {
+public abstract class Staff {
 }
