@@ -3,7 +3,7 @@ package models;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "players")
 public class Player extends Staff {
 
     private Position position;

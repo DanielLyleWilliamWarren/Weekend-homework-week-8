@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "staff")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Staff {
 
     private int id;
