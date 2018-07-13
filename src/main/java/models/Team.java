@@ -20,7 +20,7 @@ public class Team {
 
     public Team(String name, int points, double budget, League league) {
         this.name = name;
-        this.points = points;
+        this.points = 0;
         this.budget = budget;
         this.league = league;
     }
