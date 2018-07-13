@@ -8,16 +8,13 @@ import java.util.List;
 public class League {
 
     private int id;
-
     private String name;
-
     private List<Team> teams;
+
     public League(){}
 
-    public League(int id, String name, List<Team> teams) {
-        this.id = id;
+    public League( String name) {
         this.name = name;
-        this.teams = teams;
     }
 
     @Id
