@@ -53,6 +53,7 @@ public class Team {
     public void setPoints(int points) {
         this.points = points;
     }
+
     @OneToOne(mappedBy = "team", fetch = FetchType.LAZY)
     public Manager getManager() {
         return manager;
@@ -61,7 +62,8 @@ public class Team {
     public void setManager(Manager manager) {
         this.manager = manager;
     }
-    @OneToMany(mappedBy="team", fetch = FetchType.LAZY)
+
+    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
     public List<Player> getPlayers() {
         return players;
     }
@@ -78,8 +80,9 @@ public class Team {
     public void setBudget(double budget) {
         this.budget = budget;
     }
+
     @ManyToOne
-    @JoinColumn(name="league_id", nullable=false)
+    @JoinColumn(name = "league_id", nullable = false)
     public League getLeague() {
         return league;
     }
