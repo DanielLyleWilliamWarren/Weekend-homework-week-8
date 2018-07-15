@@ -35,4 +35,7 @@ public class Manager extends Staff {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    public void managerPopularity(){
+    }
 }

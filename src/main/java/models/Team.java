@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Random;
 
 @Entity
 @Table(name = "teams")
@@ -14,6 +15,7 @@ public class Team {
     private List<Player> players;
     private double budget;
     private League league;
+    private int goals;
 
     public Team() {
     }
@@ -90,5 +92,22 @@ public class Team {
     public void setLeague(League league) {
         this.league = league;
     }
+    @Column(name = "goals")
+    public int getGoals() {
+        return goals;
+    }
 
+    public void setGoals(int goals) {
+        this.goals = goals;
+    }
+
+    public Random scoreGoals(){
+        Random goals = new Random();
+        goals.nextInt(5);
+        return goals;
+    }
+
+    public void addPoints(int points) {
+        this.points += points;
+    }
 }

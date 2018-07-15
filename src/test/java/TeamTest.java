@@ -36,4 +36,12 @@ public class TeamTest {
         assertEquals(laLiga, team.getLeague());
     }
 
+    @Test
+    public void canAddPoints(){
+        team.addPoints(3);
+        assertEquals(3, team.getPoints());
+    }
+
+
+
 }

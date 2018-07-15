@@ -31,6 +31,8 @@ public class Runner {
         List<Team> teams = DBLeague.getTeamsInLeague(league);
         List<Player> players = DBTeam.getPlayersInLeague(team2);
         Manager managerOfTeam = DBTeam.getManager(team2);
+        League playMatch = DBLeague.playGame(team1, team2);
+
     }
 
 
