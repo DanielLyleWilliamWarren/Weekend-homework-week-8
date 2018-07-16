@@ -101,10 +101,10 @@ public class Team {
         this.goals = goals;
     }
 
-    public Random scoreGoals(){
-        Random goals = new Random();
-        goals.nextInt(5);
-        return goals;
+    public void scoreGoals(){
+        Random rand = new Random();
+        int n = rand.nextInt(5);
+        goals = n;
     }
 
     public void addPoints(int points) {
