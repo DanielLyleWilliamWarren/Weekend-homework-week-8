@@ -31,7 +31,20 @@ public class Runner {
         List<Team> teams = DBLeague.getTeamsInLeague(league);
         List<Player> players = DBTeam.getPlayersInLeague(team2);
         Manager managerOfTeam = DBTeam.getManager(team2);
-        League playMatch = DBLeague.playGame(team1, team2);
+
+        league.playGame(team1, team2);
+        DBHelper.update(team1);
+        DBHelper.update(team2);
+
+        league.playGame(team1, team2);
+        DBHelper.update(team1);
+        DBHelper.update(team2);
+
+        league.playGame(team1, team2);
+        DBHelper.update(team1);
+        DBHelper.update(team2);
+
+        List<Team> teamPoints = DBLeague.orderByPoints();
 
     }
 

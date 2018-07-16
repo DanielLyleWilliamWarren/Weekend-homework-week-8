@@ -6,6 +6,7 @@ import models.Team;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
@@ -29,26 +30,18 @@ public class DBLeague {
         return results;
     }
 
-    public static League playGame(Team team, Team team1){
+    public static List<Team> orderByPoints(){
         session = HibernateUtil.getSessionFactory().openSession();
-        League gameResult = null;
-        try{
-        team.scoreGoals();
-        team1.scoreGoals();
-        if (team.getGoals() > team1.getGoals()) {
-            team.addPoints(3);
-        } else if (team.getGoals() < team1.getGoals()) {
-            team1.addPoints(3);
-        } else {
-            team1.addPoints(1);
-            team.addPoints(1);
-        }
-    } catch (HibernateException e) {
+        List<Team> teamPoints = null;
+        try {
+            Criteria cr = session.createCriteria(Team.class);
+            cr.addOrder(Order.desc("points"));
+            teamPoints = cr.list();
+        } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-        return  gameResult;
-        }
-
+        return teamPoints;
+    }
 }
